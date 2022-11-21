@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
           title: Text("Greener Citizen"),
           backgroundColor: Colors.green,
           actions: [
-            IconButton(onPressed: () => {}, icon: Icon(Icons.notifications))
+            Tooltip(message: 'Notification' ,child: IconButton(onPressed: () => {}, icon: Icon(Icons.notifications)))
           ],
         ),
         body: SingleChildScrollView(

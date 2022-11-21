@@ -34,6 +34,7 @@ class NumbersWidget extends StatelessWidget {
             Text(
               text,
               style: TextStyle(fontWeight: FontWeight.bold),
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),

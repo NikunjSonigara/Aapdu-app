@@ -29,7 +29,7 @@ class _ProfilePageState extends State<ProfilePage> {
           "Greener",
         ),
         actions: [
-          IconButton(onPressed: (){ AuthController.instance.logout(); }, icon: Icon(Icons.logout))
+          Tooltip(message: 'Log Out' ,child: IconButton(onPressed: (){ AuthController.instance.logout(); }, icon: Icon(Icons.logout)))
         ],
       ),
       // buildAppBar(context),
@@ -120,18 +120,21 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: TextStyle(
                       fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     "Plantation Date : $date",
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     "Celebration : $cele",
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),

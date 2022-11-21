@@ -59,6 +59,7 @@ class _AMC_NavState extends State<AMC_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Home',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -67,6 +68,7 @@ class _AMC_NavState extends State<AMC_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Accept',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -75,6 +77,7 @@ class _AMC_NavState extends State<AMC_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Delete',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -83,6 +86,7 @@ class _AMC_NavState extends State<AMC_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Slot',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -91,6 +95,7 @@ class _AMC_NavState extends State<AMC_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Profile',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               )
             ],

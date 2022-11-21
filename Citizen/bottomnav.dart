@@ -57,12 +57,14 @@ class _Bottom_NavState extends State<Bottom_Nav> with TickerProviderStateMixin {
             tabs: [
               Tab(
                 iconMargin: EdgeInsets.only(bottom: 4),
-                icon: selectedIndex == 0
-                    ? Icon(Icons.home)
-                    : Icon(Icons.home_mini),
+                // icon: selectedIndex == 0
+                //     ? Icon(Icons.home)
+                //     : Icon(Icons.home_mini),
+                icon: Icon(Icons.home),
                 child: Text(
                   'Home',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -71,6 +73,7 @@ class _Bottom_NavState extends State<Bottom_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Tree',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -79,6 +82,7 @@ class _Bottom_NavState extends State<Bottom_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Growth',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -87,6 +91,7 @@ class _Bottom_NavState extends State<Bottom_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Scanner',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               ),
               Tab(
@@ -95,6 +100,7 @@ class _Bottom_NavState extends State<Bottom_Nav> with TickerProviderStateMixin {
                 child: Text(
                   'Profile',
                   style: TextStyle(fontSize: 12),
+                  overflow: TextOverflow.ellipsis,
                 ),
               )
             ],

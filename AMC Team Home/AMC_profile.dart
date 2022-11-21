@@ -33,7 +33,7 @@ class _AMC_ProfileState extends State<AMC_Profile> {
           "Team Details",
         ),
         actions: [
-          IconButton(onPressed: (){ AuthController.instance.logout(); }, icon: Icon(Icons.logout))
+          Tooltip(message: 'Log Out', child: IconButton(onPressed: (){ AuthController.instance.logout(); }, icon: Icon(Icons.logout)))
         ],
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -142,18 +142,21 @@ class _AMC_ProfileState extends State<AMC_Profile> {
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     "Started Date : $date",
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     "Age : $age",
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
@@ -205,18 +208,21 @@ class _AMC_ProfileState extends State<AMC_Profile> {
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     "Joining Date : $date",
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   Text(
                     "Age : $age",
                     style: TextStyle(
                         fontSize: 17
                     ),
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),

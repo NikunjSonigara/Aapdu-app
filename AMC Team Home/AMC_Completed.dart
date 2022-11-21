@@ -29,9 +29,12 @@ class _AMC_CompletedState extends State<AMC_Completed> {
         appBar: AppBar(
           title: Text("AMC Team"),
           actions: [
-            IconButton(onPressed: () {
-              AuthController.instance.logout();
-            }, icon: Icon(Icons.logout))
+            Tooltip(
+              message: 'Log Out',
+              child: IconButton(onPressed: () {
+                AuthController.instance.logout();
+              }, icon: Icon(Icons.logout)),
+            )
           ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
@@ -64,29 +67,11 @@ class _AMC_CompletedState extends State<AMC_Completed> {
         ),
     );
   }
-
-  // Widget buildPage(String text) => Center(
-  //   child: Container(
-  //     margin: const EdgeInsets.only(left: 4, right: 4, top: 2),
-  //     child: Column(
-  //       // mainAxisAlignment: MainAxisAlignment.start,
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children:<Widget>[
-  //           new_team('xyz', 9876543210, 395006),
-  //           new_team('xyz', 9876543210, 395006),
-  //           new_team('xyz', 9876543210, 395006),
-  //           new_team('xyz', 9876543210, 395006),
-  //         ]
-  //     ),
-  //   ),
-  //   // ),
-  // );
-
   Widget curr_team(String l_name, int l_co_n, int pin, String pname, String date){
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Container(
-      height: h * 0.2,
+      height: 133,
       width: w * 98,
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.all(8.0),
@@ -95,8 +80,14 @@ class _AMC_CompletedState extends State<AMC_Completed> {
         color: Colors.green[300],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("  Name: $l_name \n  Contact No.: $l_co_n \n  Pincode: $pin \n  Place Name : $pname \n  Date: $date'",style: TextStyle(color:Colors.white,fontSize:20),),
+          Text("  Name: $l_name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Contact No.: $l_co_n ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Pincode: $pin ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Place Name : $pname ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Date: $date",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+
         ],
       ),
     );

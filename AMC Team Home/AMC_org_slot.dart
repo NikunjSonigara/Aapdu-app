@@ -29,9 +29,12 @@ class _AMC_Slot_DetailsState extends State<AMC_Slot_Details> {
         appBar: AppBar(
           title: Text("AMC Team"),
           actions: [
-            IconButton(onPressed: () {
-              AuthController.instance.logout();
-            }, icon: Icon(Icons.logout))
+            Tooltip(
+              message: 'Log Out',
+              child: IconButton(onPressed: () {
+                AuthController.instance.logout();
+              }, icon: Icon(Icons.logout)),
+            )
           ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
@@ -69,7 +72,7 @@ class _AMC_Slot_DetailsState extends State<AMC_Slot_Details> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Container(
-      height: h * 0.2,
+      height: 136,
       width: w * 98,
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.all(8.0),
@@ -78,8 +81,13 @@ class _AMC_Slot_DetailsState extends State<AMC_Slot_Details> {
         color: Colors.green[300],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("  Owner Name: $l_name \n  Contact No.: $l_co_n \n  Land Pincode: $pin \n  Address : $address \n  Total Empty Slots: $slots",style: TextStyle(color:Colors.white,fontSize:20),),
+          Text("  Owner Name: $l_name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Contact No.: $l_co_n ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Land Pincode: $pin ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Address : $address ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Total Empty Slots: $slots",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
         ],
       ),
     );

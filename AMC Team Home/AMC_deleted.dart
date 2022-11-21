@@ -29,9 +29,12 @@ class _AMC_DeletedState extends State<AMC_Deleted> {
         appBar: AppBar(
           title: Text("AMC Team"),
           actions: [
-            IconButton(onPressed: () {
-              AuthController.instance.logout();
-            }, icon: Icon(Icons.logout))
+            Tooltip(
+              message: 'Log Out',
+              child: IconButton(onPressed: () {
+                AuthController.instance.logout();
+              }, icon: Icon(Icons.logout)),
+            )
           ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
@@ -53,10 +56,10 @@ class _AMC_DeletedState extends State<AMC_Deleted> {
               // mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  curr_team('abc', 9876543210, 395010, 'ABC circle'),
-                  curr_team('abc', 9876543210, 395010, 'maharana pratap'),
-                  curr_team('abc', 9876543210, 395010, 'xyz'),
-                  curr_team('abc', 9876543210, 395010, 'a'),
+                  delete('abc', 9876543210, 395010, 'ABC circle'),
+                  delete('abc', 9876543210, 395010, 'maharana pratap'),
+                  delete('abc', 9876543210, 395010, 'xyz'),
+                  delete('abc', 9876543210, 395010, 'a'),
                 ]
             ),
           ),
@@ -65,28 +68,11 @@ class _AMC_DeletedState extends State<AMC_Deleted> {
     );
   }
 
-  // Widget buildPage(String text) => Center(
-  //   child: Container(
-  //     margin: const EdgeInsets.only(left: 4, right: 4, top: 2),
-  //     child: Column(
-  //       // mainAxisAlignment: MainAxisAlignment.start,
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children:<Widget>[
-  //           new_team('xyz', 9876543210, 395006),
-  //           new_team('xyz', 9876543210, 395006),
-  //           new_team('xyz', 9876543210, 395006),
-  //           new_team('xyz', 9876543210, 395006),
-  //         ]
-  //     ),
-  //   ),
-  //   // ),
-  // );
-
-  Widget curr_team(String l_name, int l_co_n, int pin, String pname){
+  Widget delete(String l_name, int l_co_n, int pin, String pname){
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Container(
-      height: h * 0.25,
+      height: 158,
       width: w * 98,
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.all(8.0),
@@ -95,72 +81,25 @@ class _AMC_DeletedState extends State<AMC_Deleted> {
         color: Colors.red[300],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("  Name: $l_name \n  Contact No.: $l_co_n \n  Pincode: $pin \n  Place Name: $pname",style: TextStyle(color:Colors.white,fontSize:20),),
+          Text("  Name: $l_name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Contact No.: $l_co_n ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Pincode: $pin ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Place Name: $pname",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
-          TextButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          Center(
+            child: TextButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              ),
+              onPressed: () { },
+              child: Text('Send SMS'),
             ),
-            onPressed: () { },
-            child: Text('Send SMS'),
           )
-        ],
-      ),
-    );
-  }
-
-  Widget new_team(String l_name, int l_co_n, int pin){
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-    return Container(
-      height: h*0.248,
-      width: w*98,
-      margin: EdgeInsets.all(8.0),
-      padding: EdgeInsets.all(8.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Colors.green[300],
-      ),
-      child: Column(
-        children: <Widget>[
-          Text("Team $team_Count \n  Leader Name: $l_name \n  Leader Contact No.: $l_co_n \n  Area Pincode: $pin",style: TextStyle(color:Colors.white,fontSize:20),),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              ElevatedButton.icon(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                ),
-                onPressed: () {},
-                icon: Icon( // <-- Icon
-                  Icons.done,
-                  size: 24.0,
-                ),
-                label: Text('Accept'), // <-- Text
-              ),
-              SizedBox(width: 20,),
-              ElevatedButton.icon(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                ),
-                onPressed: () {},
-                icon: Icon( // <-- Icon
-                  Icons.close,
-                  size: 24.0,
-                ),
-                label: Text('Reject'), // <-- Text
-              ),
-            ],
-          ),
         ],
       ),
     );

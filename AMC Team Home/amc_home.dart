@@ -29,9 +29,12 @@ class _AMC_HomeState extends State<AMC_Home> {
         appBar: AppBar(
           title: Text("AMC Team"),
           actions: [
-            IconButton(onPressed: () {
-              AuthController.instance.logout();
-            }, icon: Icon(Icons.logout))
+            Tooltip(
+              message: 'Log Out',
+              child: IconButton(onPressed: () {
+                AuthController.instance.logout();
+              }, icon: Icon(Icons.logout)),
+            )
           ],
           flexibleSpace: Container(
             decoration: BoxDecoration(
@@ -102,7 +105,7 @@ class _AMC_HomeState extends State<AMC_Home> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Container(
-      height: h*0.28,
+      height: 182,
       width: w*98,
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.all(8.0),
@@ -111,10 +114,15 @@ class _AMC_HomeState extends State<AMC_Home> {
         color: Colors.green[300],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("  Name : $name \n  Tree Name : $T_name \n  Leader Contact No.: $pno \n  Area Pincode: $pin \n  Place Name : $P_name",style: TextStyle(color:Colors.white,fontSize:20),),
+          Text("  Name : $name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Tree Name : $T_name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Leader Contact No.: $pno ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Area Pincode: $pin ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Place Name : $P_name",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -131,7 +139,7 @@ class _AMC_HomeState extends State<AMC_Home> {
                 ),
                 label: Text('Accept'), // <-- Text
               ),
-              SizedBox(width: 20,),
+              SizedBox(width: 10,),
               ElevatedButton.icon(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
@@ -155,7 +163,7 @@ class _AMC_HomeState extends State<AMC_Home> {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Container(
-      height: h*0.35,
+      height: 228,
       width: w*98,
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.all(8.0),
@@ -164,10 +172,17 @@ class _AMC_HomeState extends State<AMC_Home> {
         color: Colors.green[300],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text("  Name : $name \n  Tree Name : $T_name \n  Leader Contact No.: $pno \n  Area Pincode: $pin \n  Place Name : $P_name \n  Date : $date \n  Time : $time",style: TextStyle(color:Colors.white,fontSize:20),),
+          Text("  Name : $name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Tree Name : $T_name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Leader Contact No.: $pno ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Area Pincode: $pin ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Place Name : $P_name ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Date : $date ",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
+          Text("  Time : $time",style: TextStyle(color:Colors.white,fontSize:20), overflow: TextOverflow.ellipsis,),
           SizedBox(
-            height: 10,
+            height: 2,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -184,7 +199,7 @@ class _AMC_HomeState extends State<AMC_Home> {
                 ),
                 label: Text('Accept'), // <-- Text
               ),
-              SizedBox(width: 20,),
+              SizedBox(width: 10,),
               ElevatedButton.icon(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
